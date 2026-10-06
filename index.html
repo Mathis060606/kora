@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KORA brand</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&family=Allura&display=swap" rel="stylesheet">
+<style>
+/* Mise en page : boutique activewear éditoriale — grandes photos réelles, texte sur crème, bandes chocolat */
+html{color-scheme:light}
+:root{
+  --crema:#F6EFE9; --arena:#EADFD3; --lino:#D8C9B8; --chocolate:#5B3D2F; --burdeos:#3A1E1C; --cafe:#2B1F18; --tinta:#1E1A17; --suave:#8C7666;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Montserrat','Helvetica Neue',Arial,sans-serif;
+  --script:'Allura','Brush Script MT',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--crema);color:var(--tinta);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.gut{padding-inline:clamp(16px,4vw,64px)}
+.et{font-size:.66rem;letter-spacing:.34em;text-transform:uppercase;font-weight:400}
+.serif{font-family:var(--serif);font-weight:500;line-height:1.04}
+h1,h2,h3{text-wrap:balance}
+
+/* Logo */
+.logo{display:inline-flex;flex-direction:column;align-items:center;line-height:1}
+.logo b{font-family:var(--serif);font-weight:600;font-size:1.9rem;letter-spacing:.06em;color:var(--chocolate)}
+.logo span{display:flex;align-items:center;gap:10px;font-size:.56rem;letter-spacing:.62em;text-transform:uppercase;font-weight:400;margin-top:5px;padding-left:.62em}
+.logo span::before,.logo span::after{content:"";width:30px;height:1.5px;background:currentColor}
+
+/* Annonce + en-tête */
+.anuncio{background:var(--cafe);color:var(--crema);text-align:center;padding:9px 16px;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(246,239,233,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--lino)}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:78px}
+.nav nav{display:flex;gap:28px}
+.nav a.m{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:400;position:relative}
+.nav a.m::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--chocolate);transition:width .3s}
+.nav a.m:hover::after{width:100%}
+.der{display:flex;justify-content:flex-end;gap:22px}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:var(--crema)}
+.hero .txt{display:flex;flex-direction:column;justify-content:center;padding-block:72px;gap:22px}
+.hero .marca{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
+.hero .marca b{font-family:var(--serif);font-weight:600;font-size:clamp(3.4rem,7vw,6.2rem);letter-spacing:.05em;color:var(--chocolate)}
+.hero .marca span{display:flex;align-items:center;gap:14px;font-size:.78rem;letter-spacing:.7em;text-transform:uppercase;margin-top:8px}
+.hero .marca span::before,.hero .marca span::after{content:"";width:46px;height:1.5px;background:var(--tinta)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4.4vw,3.8rem);line-height:1.04;color:var(--cafe);margin-top:26px}
+.hero h1 .you{font-family:var(--script);font-size:1.5em;color:var(--chocolate);line-height:.6;display:inline-block;transform:translateY(.08em)}
+.hero p{max-width:440px;color:var(--suave)}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.btn{display:inline-block;padding:16px 32px;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500;border:1px solid var(--cafe);transition:background .3s,color .3s}
+.btn-o{background:var(--cafe);color:var(--crema)}
+.btn-o:hover{background:var(--chocolate);border-color:var(--chocolate)}
+.btn-c:hover{background:var(--cafe);color:var(--crema)}
+.btn:focus-visible,.nav a:focus-visible{outline:2px solid var(--chocolate);outline-offset:3px}
+.hero .img{position:relative;min-height:620px;background:url(active.jpg) 22% 32%/cover no-repeat var(--lino)}
+.hero .img .chip{position:absolute;left:24px;bottom:24px;background:var(--crema);padding:14px 18px;display:flex;flex-direction:column;gap:2px;box-shadow:0 18px 40px -20px rgba(0,0,0,.45)}
+.hero .img .chip b{font-family:var(--serif);font-weight:500;font-size:1.15rem;color:var(--cafe)}
+.hero .img .chip small{font-size:.72rem;color:var(--suave)}
+
+/* Atouts (repris de l'affiche KORA Active) */
+.atouts{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--lino)}
+.atout{display:flex;align-items:center;gap:16px;padding:28px clamp(16px,3vw,40px);min-width:0}
+.atout+.atout{border-left:1px solid var(--lino)}
+.atout svg{flex:none;width:34px;height:34px;stroke:var(--chocolate);fill:none;stroke-width:1.2}
+.atout b{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--cafe)}
+.atout span{font-size:.85rem;color:var(--suave)}
+
+/* Colección Burdeos */
+.coleccion{display:grid;grid-template-columns:1.1fr 1fr;background:var(--burdeos);color:var(--crema)}
+.coleccion .img{min-height:560px;background:url(burdeos.jpg) center 40%/cover no-repeat #2a1514}
+.coleccion .txt{padding:clamp(40px,6vw,88px);display:flex;flex-direction:column;justify-content:center;gap:18px}
+.coleccion h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,4.6vw,4rem);line-height:1}
+.coleccion h2 em{font-style:italic;color:#E8D9C8}
+.coleccion p{color:#D9C3B4;max-width:420px}
+.coleccion ul{list-style:none;display:grid;gap:10px;margin-top:6px}
+.coleccion li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #5A3532;padding-bottom:10px;font-size:.9rem}
+.coleccion li span:last-child{font-variant-numeric:tabular-nums;color:#E8D9C8}
+.coleccion .btn{border-color:var(--crema);color:var(--crema);align-self:flex-start;margin-top:8px}
+.coleccion .btn:hover{background:var(--crema);color:var(--burdeos)}
+
+/* Sélection produits */
+.seleccion{padding-block:100px}
+.seleccion .cab{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.seleccion h2{font-size:clamp(2.2rem,4.2vw,3.4rem);color:var(--cafe);margin-top:10px}
+.filtros{display:flex;gap:8px;flex-wrap:wrap}
+.filtros button{font:inherit;font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;background:none;border:1px solid var(--lino);padding:10px 16px;color:var(--cafe);cursor:pointer;transition:background .25s,color .25s}
+.filtros button.on,.filtros button:hover{background:var(--cafe);border-color:var(--cafe);color:var(--crema)}
+.filtros button:focus-visible{outline:2px solid var(--chocolate);outline-offset:2px}
+.rejilla{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 22px}
+.item{min-width:0}
+.item .ph{aspect-ratio:3/4;margin-bottom:14px;position:relative;overflow:hidden;background-color:var(--lino);background-repeat:no-repeat;transition:transform .2s}
+.item .ph i{position:absolute;inset:0;background:inherit;background-size:inherit;background-position:inherit;transition:transform .8s ease}
+.item:hover .ph i{transform:scale(1.06)}
+.item .tag{position:absolute;top:12px;left:12px;z-index:1;background:var(--crema);font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;padding:6px 10px}
+.item .fila{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.item h4{font-family:var(--serif);font-weight:500;font-size:1.28rem;color:var(--cafe);line-height:1.2}
+.item .precio{font-size:.82rem;color:var(--suave);white-space:nowrap;font-variant-numeric:tabular-nums}
+.item .det{font-size:.8rem;color:var(--suave)}
+.colores{display:flex;gap:6px;margin-top:8px}
+.colores i{width:12px;height:12px;border-radius:50%;border:1px solid var(--lino)}
+/* recadrages des vraies photos */
+.c-full{background-image:url(active.jpg);background-size:cover;background-position:30% 30%}
+.c-top{background-image:url(active.jpg);background-size:240% auto;background-position:28% 33%}
+.c-legs{background-image:url(active.jpg);background-size:200% auto;background-position:20% 72%}
+.c-bur1{background-image:url(burdeos.jpg);background-size:cover;background-position:40% 35%}
+.c-bur2{background-image:url(burdeos.jpg);background-size:170% auto;background-position:30% 55%}
+.c-pack{background-image:url(kora.jpg);background-size:230.4% auto;background-position:61.2% 0%}
+.c-tags{background-image:url(kora.jpg);background-size:430% auto;background-position:99% 100%}
+.c-sticker{background-image:url(kora.jpg);background-size:550% auto;background-position:62.7% 100%}
+
+/* Unboxing */
+.unbox{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--arena)}
+.unbox .txt{padding:clamp(40px,6vw,88px);display:flex;flex-direction:column;justify-content:center;gap:16px}
+.unbox h2{font-size:clamp(2.2rem,4.2vw,3.4rem);color:var(--cafe)}
+.unbox p{color:var(--suave);max-width:420px}
+.unbox .mosaico{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px}
+.foto{background-image:url(kora.jpg);background-repeat:no-repeat;background-color:var(--lino);max-width:100%}
+.f-tag{aspect-ratio:518/340;background-size:254.8% auto;background-position:99.4% 64.7%;grid-column:1/-1}
+.f-gracias{aspect-ratio:390/310;background-size:338.5% auto;background-position:29.6% 100%}
+.f-papel{aspect-ratio:390/310;background-size:503.8% auto;background-position:0% 100%}
+
+/* Gracias */
+.gracias{background:var(--chocolate);color:var(--crema);padding-block:96px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.gracias .script{font-family:var(--script);font-size:clamp(4rem,9vw,7rem);line-height:.9}
+.gracias p{color:var(--lino);max-width:420px;margin-top:14px}
+.boletin label{display:block;margin-bottom:12px}
+.boletin .campo{display:flex;border-bottom:1px solid var(--lino)}
+.boletin input{flex:1;min-width:0;background:transparent;border:0;padding:14px 0;color:var(--crema);font:inherit;font-size:1rem;outline:none}
+.boletin input::placeholder{color:#C9B6A4}
+.boletin button{background:none;border:0;color:var(--crema);font:inherit;font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500;cursor:pointer;padding-left:16px}
+.boletin button:focus-visible,.boletin input:focus-visible{outline:2px solid var(--crema);outline-offset:3px}
+.boletin small{display:block;margin-top:12px;color:#C9B6A4;font-size:.75rem}
+
+footer{background:var(--cafe);color:var(--lino);padding-block:64px 28px}
+.pie{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+.pie h5{color:var(--crema);font-size:.64rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500;margin-bottom:14px}
+.pie li{list-style:none;font-size:.86rem;margin-bottom:8px}
+.pie .logo b{color:var(--crema)}
+.pie .lema{font-family:var(--serif);font-style:italic;font-size:1.2rem;margin-top:18px;color:var(--crema)}
+.legal{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:52px;padding-top:20px;border-top:1px solid #4A3A30;font-size:.72rem}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:900px){
+  .nav nav{display:none}
+  .hero,.coleccion,.unbox,.gracias{grid-template-columns:1fr}
+  .hero .img{min-height:520px;order:-1}
+  .hero .txt{padding-block:48px 64px}
+  .coleccion .img{min-height:440px}
+  .atouts{grid-template-columns:1fr}
+  .atout+.atout{border-left:0;border-top:1px solid var(--lino)}
+  .rejilla{grid-template-columns:repeat(2,1fr)}
+  .pie{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){
+  .der .ocultar{display:none}
+  .pie{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="anuncio">Envío gratis desde 150.000 COP · Empaque de regalo en cada pedido</div>
+<header>
+  <div class="nav gut">
+    <nav aria-label="Menú principal">
+      <a class="m" href="#seleccion">Activewear</a>
+      <a class="m" href="#coleccion">Burdeos</a>
+      <a class="m" href="#seleccion">Belleza</a>
+    </nav>
+    <a href="#" class="logo" aria-label="KORA brand, inicio"><b>KORA</b><span>brand</span></a>
+    <div class="der">
+      <a class="m ocultar" href="#">Buscar</a>
+      <a class="m" href="#">Bolsa (0)</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="txt gut">
+      <div class="marca" aria-label="KORA Active"><b>KORA</b><span>Active</span></div>
+      <h1>Strong looks good on <span class="you">you.</span></h1>
+      <p>Ropa deportiva para mujer y productos de belleza para tu rutina. Telas de alto rendimiento, cortes que estilizan y un cuidado de la piel pensado para después del entreno.</p>
+      <div class="btns">
+        <a href="#seleccion" class="btn btn-o">Comprar ahora</a>
+        <a href="#coleccion" class="btn btn-c">Nueva colección</a>
+      </div>
+    </div>
+    <div class="img" role="img" aria-label="Mujer con conjunto deportivo KORA color cacao en el gimnasio">
+      <div class="chip"><b>Set Sculpt Cacao</b><small>Top + leggings · $ 239.000</small></div>
+    </div>
+  </section>
+
+  <div class="atouts">
+    <div class="atout"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 27c-5-3-9-7-9-12 3 0 6 2 9 6 3-4 6-6 9-6 0 5-4 9-9 12z"/><path d="M16 21c-2-4-2-9 0-14 2 5 2 10 0 14z"/></svg><div><b>Telas de alto rendimiento</b><span>Suaves, opacas y de secado rápido</span></div></div>
+    <div class="atout"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 26V9M16 26V6M24 26V9M5 12l3-3 3 3M13 9l3-3 3 3M21 12l3-3 3 3"/></svg><div><b>Comodidad en cada movimiento</b><span>Tiro alto que sujeta sin apretar</span></div></div>
+    <div class="atout"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 26s-10-6-10-13a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 7-10 13-10 13z"/></svg><div><b>Diseños que te acompañan</b><span>Del gimnasio a tu día a día</span></div></div>
+  </div>
+
+  <section id="coleccion" class="coleccion">
+    <div class="img" role="img" aria-label="Conjunto deportivo KORA color burdeos con ribete crema"></div>
+    <div class="txt">
+      <p class="et">Nueva colección</p>
+      <h2>Burdeos, <em>ribete crema.</em></h2>
+      <p>Nuestro conjunto más elegante: tono burdeos profundo con ribetes en crema y el logo KORA bordado. Hecho para entrenar y para lucirse.</p>
+      <ul>
+        <li><span>Top Burdeos ribeteado</span><span>$ 119.000</span></li>
+        <li><span>Leggings Burdeos ribeteados</span><span>$ 169.000</span></li>
+        <li><span>Set completo</span><span>$ 259.000</span></li>
+      </ul>
+      <a href="#seleccion" class="btn">Ver la colección</a>
+    </div>
+  </section>
+
+  <section id="seleccion" class="seleccion gut">
+    <div class="cab">
+      <div><p class="et">Lo más querido</p><h2 class="serif">Favoritos de la temporada</h2></div>
+      <div class="filtros" role="group" aria-label="Filtrar productos">
+        <button type="button" id="f-todo" class="on" data-f="todo">Todo</button>
+        <button type="button" id="f-activewear" data-f="activewear">Activewear</button>
+        <button type="button" id="f-belleza" data-f="belleza">Belleza</button>
+      </div>
+    </div>
+    <div class="rejilla">
+      <a href="#" class="item" data-c="activewear"><div class="ph c-full"><i></i><span class="tag">Más vendido</span></div><div class="fila"><h4>Set Sculpt Cacao</h4><span class="precio">$ 239.000</span></div><p class="det">Top + leggings</p><div class="colores"><i style="background:#4A3426"></i><i style="background:#E9DFD2"></i><i style="background:#3A1E1C"></i></div></a>
+      <a href="#" class="item" data-c="activewear"><div class="ph c-bur1"><i></i><span class="tag">Nuevo</span></div><div class="fila"><h4>Top Burdeos ribeteado</h4><span class="precio">$ 119.000</span></div><p class="det">Sujeción media</p><div class="colores"><i style="background:#3A1E1C"></i><i style="background:#4A3426"></i></div></a>
+      <a href="#" class="item" data-c="activewear"><div class="ph c-legs"><i></i></div><div class="fila"><h4>Leggings Sculpt</h4><span class="precio">$ 159.000</span></div><p class="det">Tiro alto · 4 colores</p><div class="colores"><i style="background:#4A3426"></i><i style="background:#1E1A17"></i><i style="background:#E9DFD2"></i><i style="background:#3A1E1C"></i></div></a>
+      <a href="#" class="item" data-c="activewear"><div class="ph c-bur2"><i></i><span class="tag">Nuevo</span></div><div class="fila"><h4>Leggings Burdeos ribeteados</h4><span class="precio">$ 169.000</span></div><p class="det">Ribete crema</p><div class="colores"><i style="background:#3A1E1C"></i></div></a>
+      <a href="#" class="item" data-c="belleza"><div class="ph" style="background:linear-gradient(160deg,#EFE6DB,#D8C9B8)"><i></i><span class="tag">Belleza</span></div><div class="fila"><h4>Sérum glow vitamina C</h4><span class="precio">$ 89.000</span></div><p class="det">30 ml</p></a>
+      <a href="#" class="item" data-c="belleza"><div class="ph" style="background:linear-gradient(160deg,#D9C8B4,#B89F86)"><i></i><span class="tag">Belleza</span></div><div class="fila"><h4>Bruma calmante post-entreno</h4><span class="precio">$ 65.000</span></div><p class="det">100 ml</p></a>
+      <a href="#" class="item" data-c="activewear"><div class="ph c-top"><i></i></div><div class="fila"><h4>Top Sculpt Cacao</h4><span class="precio">$ 109.000</span></div><p class="det">Logo KORA</p><div class="colores"><i style="background:#4A3426"></i><i style="background:#E9DFD2"></i></div></a>
+      <a href="#" class="item" data-c="belleza"><div class="ph c-pack"><i></i><span class="tag">Regalo</span></div><div class="fila"><h4>Tarjeta de regalo KORA</h4><span class="precio">desde $ 50.000</span></div><p class="det">En empaque de regalo</p></a>
+    </div>
+  </section>
+
+  <section class="unbox">
+    <div class="mosaico">
+      <div class="foto f-tag" role="img" aria-label="Bolsa de regalo KORA con etiqueta K"></div>
+      <div class="foto f-gracias" role="img" aria-label="Tarjeta de agradecimiento KORA"></div>
+      <div class="foto f-papel" role="img" aria-label="Papel de seda con sello KORA"></div>
+    </div>
+    <div class="txt">
+      <p class="et">La experiencia KORA</p>
+      <h2 class="serif">Cada pedido, un regalo.</h2>
+      <p>Papel de seda, sello KORA y una tarjeta escrita a mano. Pequeños detalles, grandes momentos.</p>
+    </div>
+  </section>
+
+  <section class="gracias gut">
+    <div>
+      <p class="script">Gracias</p>
+      <p>Por ser parte de esta comunidad. Tu apoyo nos inspira a seguir creciendo.</p>
+    </div>
+    <form class="boletin" id="boletin">
+      <label for="correo" class="et">Recibe un 10 % en tu primera compra</label>
+      <div class="campo"><input type="email" id="correo" placeholder="Tu correo electrónico" required><button type="submit">Unirme</button></div>
+      <small id="estado">Novedades y lanzamientos, una vez por semana.</small>
+    </form>
+  </section>
+</main>
+
+<footer class="gut">
+  <div class="pie">
+    <div><span class="logo"><b>KORA</b><span>brand</span></span><p class="lema">Strong looks good on you.</p></div>
+    <div><h5>Tienda</h5><ul><li>Activewear</li><li>Colección Burdeos</li><li>Belleza</li><li>Tarjetas de regalo</li></ul></div>
+    <div><h5>Ayuda</h5><ul><li>Envíos</li><li>Cambios y devoluciones</li><li>Guía de tallas</li><li>Contacto</li></ul></div>
+    <div><h5>Síguenos</h5><ul><li>Instagram</li><li>TikTok</li><li>Pinterest</li></ul></div>
+  </div>
+  <div class="legal"><span>© 2026 KORA brand</span><span>Términos · Privacidad</span></div>
+</footer>
+
+<script>
+document.querySelectorAll('.filtros button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.filtros button').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f;
+  document.querySelectorAll('.item').forEach(i=>{i.hidden=!(f==='todo'||i.dataset.c===f)});
+}));
+document.getElementById('boletin').addEventListener('submit',e=>{
+  e.preventDefault();
+  document.getElementById('estado').textContent='¡Listo! Revisa tu correo ♥';
+});
+</script>
+
+</body>
+</html>
